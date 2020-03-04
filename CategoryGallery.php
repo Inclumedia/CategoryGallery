@@ -61,7 +61,7 @@ class CategoryGallery {
                 // Capitalize the first letter in the category argument, convert spaces to _
                 $params['cat'] = str_replace ( ' ', '_', ucfirst( $params['cat'] ) );
                 // Retrieve category members from database
-                $dbr = wfGetDB( DB_SLAVE );
+                $dbr = wfGetDB( DB_REPLICA );
                 $res = $dbr->select( 'categorylinks', 'cl_from',
                         array (
                                'cl_to' => $params['cat'],
